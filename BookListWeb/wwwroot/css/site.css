@@ -1,0 +1,128 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #faf5e6;
+}
+
+span {
+    color: #AE445A;
+    font-weight: bold;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 90px;
+    background-color: #F3D7CA;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+}
+
+    .navbar-brand span {
+        font-weight: bold;
+        padding: 15px;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+a {
+    position: relative;
+    color: #AE445A;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 20px;
+}
+
+.fas {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    top: 5px;
+    font-size: 20px;
+    background: #FFF8E3;
+    border-radius: 50%;
+    padding: 25px;
+}
+
+.nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+
+a:hover {
+    background: #eee;
+}
+
+nav:hover {
+    width: 200px;
+    transition: all 0.5s ease;
+}
+
+.navbar-brand h1 {
+    color: #d54d7b;
+    font-family: "Great Vibes", cursive;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    font-size: 2rem;
+}
+
+h1 {
+    color: #d54d7b;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    font-size: 2rem;
+}
+
+#category_container {
+    margin-top: 50px;
+}
+
+
+.btn {
+    background-color: #E6A4B4;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+.card-header {
+    background-color: #E6A4B4;
+}
+
+.actions_btn {
+    display: flex;
+    align-content: center;
+    max-width: 5px;
+}

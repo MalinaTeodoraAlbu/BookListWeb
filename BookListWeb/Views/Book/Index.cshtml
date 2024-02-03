@@ -1,0 +1,45 @@
+﻿@model List<Book>
+
+<div id='category_container'>
+    <h1>Manage Book</h1>
+    <div class="col-12 text-end">
+        <a asp-controller="Book" asp-action="Create" class="btn ">
+            <i class="bi bi-plus-circle"></i>
+            Create new Book
+        </a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="table-primary">
+                    Book Title
+                </th>
+                <th class="table-primary">
+                    Author
+                </th>
+                <th class="table-primary">
+                    Category
+                </th>
+                <th class="table-primary">
+
+                </th>
+                <th class="table-primary">
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Title</td>
+                    <td>@obj.Author</td>
+                    <td> </td>
+                    <td><i class="fa-regular fa-pen-to-square"></i></td>
+                    <td><i class="fa-solid fa-trash"></i></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
