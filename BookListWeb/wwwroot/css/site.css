@@ -28,7 +28,7 @@ span {
 }
 
 nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -79,9 +79,7 @@ a {
     margin-left: 10px;
 }
 
-a:hover {
-    background: #eee;
-}
+
 
 nav:hover {
     width: 200px;
@@ -125,4 +123,98 @@ h1 {
     display: flex;
     align-content: center;
     max-width: 5px;
+}
+
+
+.description{
+    min-height: 200px;
+}
+
+
+.buttons_{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    .buttons_ button {
+        border-radius: 50%;
+        border: none;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+    }
+
+ 
+
+    .buttons_ .fa-heart:hover {
+        color: red;
+    }
+
+    .buttons_ .fa-bookmark:hover {
+        color: #b772e9;
+    }
+
+    .buttons_ .fa-heart:active {
+        color: red;
+    }
+
+    .buttons_ .fa-bookmark:active {
+        color: #b772e9;
+    }
+
+    .buttons_ .fa-eye:hover {
+        color: #3ad0e7;
+    }
+
+    .buttons_ .fa-eye:active {
+        color: #3ad0e7;
+    }
+
+
+.buttons_ a {
+    position: initial;
+    color: black;
+    font-size: 14px;
+    display: block;
+    width: auto;
+    padding: 0;
+}
+
+
+.side_bar_{
+    max-height: 94vh;
+    
+}
+
+.conatiner_details {
+    position: relative;
+    margin-top: 100px;
+    display: flex;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.container_img {
+    margin: 20px;
+    width: 45%;
+    margin-right: 2%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+}
+
+.container_details_book {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.container_img img {
+    width: 100% ;
+    
 }

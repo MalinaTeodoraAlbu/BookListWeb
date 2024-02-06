@@ -1,0 +1,77 @@
+﻿@model BookVM
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Book</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <div class="row">
+               <div class="col-10">
+                    <div class="p-5">
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Book.Title" class="form-control border-1" />
+                            <label asp-for="Book.Title" class="ms-2"></label>
+                            <span asp-validation-for="Book.Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <textarea asp-for="Book.Description" class="form-control border-1 description" ></textarea>
+                            <label asp-for="Book.Description" class="ms-2"></label>
+                            <span asp-validation-for="Book.Description" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <input asp-for="Book.Author" class="form-control border-1" />
+                            <label asp-for="Book.Author" class="ms-2"></label>
+                            <span asp-validation-for="Book.Author" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <input asp-for="Book.Rating" class="form-control border-1" />
+                            <label asp-for="Book.Rating" class="ms-2"></label>
+                            <span asp-validation-for="Book.Rating" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <input asp-for="Book.yearOfPublication" class="form-control border-1" />
+                            <label asp-for="Book.yearOfPublication" class="ms-2"></label>
+                            <span asp-validation-for="Book.yearOfPublication" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <select asp-for="@Model.Book.CategoryId" asp-items="@Model.CategoryList" class="form-select border-1">
+                                <option disabled selected>--Select Category</option>
+                            </select>
+                            <label asp-for="Book.CategoryId" class="ms-2"></label>
+                            <span asp-validation-for="Book.CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12 mb-2">
+                            <input type="file" name="file" class="form-control border-0 shadow" />
+                            <label asp-for="Book.ImageUrl" class="ms-2"></label>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6 col-md-2">
+                                <button type="submit" class="btn form-control">Create</button>
+                            </div>
+                            <div class="col-1 col-md-2">
+                                <a asp-controller="Book" asp-action="Index" class="btn  form-control border">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <div class="col-2">
+                    <img src="@Model.Book.ImageUrl" width="100%" style="border-radius:5px; border: 1px solid #bbb999" />
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

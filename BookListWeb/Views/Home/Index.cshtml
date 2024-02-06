@@ -1,8 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Book>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="row pb-3">
+        @foreach(var book in Model)
+        {
+        <div class=" col-lg-4 col-sm-6 ">
+                <div class="row p-2">
+                    <div class="card_book">
+                        
+                    <div class="card p-3 shadow  border-top border-5 rounded">
+                            <img src="@book.ImageUrl" class="card-img-top rounded" />
+                            <div class="card-body pb-0">
+                                <div class="pl-1">
+                                    <p class="card-title h5 text-dark text-uppercase text-center">@book.Title</p>
+                                    <p class="card-title text-danger text-center"> by <b>@book.Author</b> </p>
+                                </div>
+                                 <div class="pl-1">
+                                <div class="buttons_">
+                                    <button> <i class="fal fa-solid fa-heart fa-xl"></i></button>
+                                    <button> <i class="fal fa-solid fa-bookmark fa-xl"></i></button>
+                                    <button>
+                                        <a asp-action="Details" asp-route-bookId="@book.Id"> <i class="fa-solid fa-eye fa-xl"></i> </a>
+                                    </button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

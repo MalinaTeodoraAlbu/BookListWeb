@@ -1,4 +1,6 @@
 using BookListWeb.Models;
+using BookListWeb.Repository;
+using BookListWeb.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,20 +9,23 @@ namespace BookListWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IBookRepository _bookRepository;
+        public HomeController(ILogger<HomeController> logger, IBookRepository bookRepository)
         {
             _logger = logger;
+            _bookRepository = bookRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Book> books = _bookRepository.GetAll(includeProperties: "Category");
+            return View(books);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Details(int? bookId)
         {
-            return View();
+            Book? book = _bookRepository.Get(u => u.Id == bookId, includeProperties: "Category");
+            return View(book);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -28,5 +33,7 @@ namespace BookListWeb.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
     }
 }

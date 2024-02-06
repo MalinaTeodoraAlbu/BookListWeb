@@ -34,9 +34,17 @@
                 <tr>
                     <td>@obj.Title</td>
                     <td>@obj.Author</td>
-                    <td> </td>
-                    <td><i class="fa-regular fa-pen-to-square"></i></td>
-                    <td><i class="fa-solid fa-trash"></i></td>
+                    <td>@obj.Category.Name </td>
+                    <td>
+                        <a class="actions_btn" asp-controller="Book" asp-action="Edit" asp-route-id="@obj.Id">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="actions_btn" asp-controller="Book" asp-action="Delete" asp-route-id="@obj.Id">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
                 </tr>
             }
 

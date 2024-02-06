@@ -2,6 +2,7 @@
 using BookListWeb.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BookListWeb.Repository
 {
@@ -14,6 +15,7 @@ namespace BookListWeb.Repository
         {
             _db = db;
             this.dbSet = _db.Set<T>();
+            _db.Books.Include(u => u.Category).Include(u=>u.CategoryId);
         }
         public void Add(T entity)
         {
@@ -25,17 +27,32 @@ namespace BookListWeb.Repository
             dbSet.Remove(entity);
         }
 
-        public T Get(Expression<Func<T, bool>> filter)
+        public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> querry = dbSet;
-            querry.Where(filter);
-
+            querry = querry.Where(filter);
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' },
+                    StringSplitOptions.RemoveEmptyEntries))
+                {
+                    querry = querry.Include(includeProp);
+                }
+            }
             return querry.FirstOrDefault();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> querry = dbSet;
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' },
+                    StringSplitOptions.RemoveEmptyEntries))
+                {
+                    querry = querry.Include(includeProp);
+                }
+            }
             return querry.ToList();
         }
     }
