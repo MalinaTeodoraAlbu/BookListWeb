@@ -23,30 +23,37 @@
                 </a>
                 <div>
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                           <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Book" asp-action="Index">
                                 <i class="fas fa-solid fa-box-archive"></i>
-                                <span class="nav-item">Books</span>
+                                <span class="nav-item">Books Management</span>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">
-                                <i class="fas fa-solid fa-list"></i>
-                                <span class="nav-item">Categories</span>
-                            </a>
-                        </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">
+                                    <i class="fas fa-solid fa-list"></i>
+                                    <span class="nav-item">Categories Management</span>
+                                </a>
+                            </li> 
+                        }
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="User" asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-solid fa-book"></i>
                                 <span class="nav-item">Books</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="User" asp-controller="Home" asp-action="Privacy">
-                                <i class="fas fa-solid fa-heart"></i>
-                                <span class="nav-item">My List</span>
-                            </a>
-                        </li>
+                        @if (User.IsInRole(SD.Role_User)){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="User" asp-controller="Home" asp-action="Privacy">
+                                    <i class="fas fa-solid fa-heart"></i>
+                                    <span class="nav-item">My List</span>
+                                </a>
+                            </li>
+                        }
+                        
 
                     </ul>
                    <div class="partial_login">

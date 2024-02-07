@@ -1,7 +1,9 @@
 ﻿using BookListWeb.Data;
 using BookListWeb.Models;
 using BookListWeb.Repository.IRepository;
+using BookListWeb.Utility;
 using BookListWeb.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BookListWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepo;

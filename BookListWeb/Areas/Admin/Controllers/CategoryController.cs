@@ -1,11 +1,14 @@
 ﻿using BookListWeb.Models;
 using BookListWeb.Repository.IRepository;
+using BookListWeb.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace BookListWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly ICategoryRepository _categoryRepo;
