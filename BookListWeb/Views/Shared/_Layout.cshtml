@@ -24,48 +24,34 @@
                 <div>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                <i class="fas fa-solid fa-house"></i>
-                                <span class="nav-item">Home</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Book" asp-action="Index">
                                 <i class="fas fa-solid fa-box-archive"></i>
                                 <span class="nav-item">Books</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">
                                 <i class="fas fa-solid fa-list"></i>
                                 <span class="nav-item">Categories</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                            <a class="nav-link text-dark" asp-area="User" asp-controller="Home" asp-action="Index">
                                 <i class="fas fa-solid fa-book"></i>
                                 <span class="nav-item">Books</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                            <a class="nav-link text-dark" asp-area="User" asp-controller="Home" asp-action="Privacy">
                                 <i class="fas fa-solid fa-heart"></i>
                                 <span class="nav-item">My List</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
-                                <i class="fas fa-solid fa-bookmark"></i>
-                                <span class="nav-item">Saved</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark logout" asp-area="" asp-controller="Home" asp-action="Privacy">
-                                <i class="fas fa-solid fa-right-from-bracket"></i>
-                                <span class="nav-item">Logout</span>
-                            </a>
-                        </li>
+
                     </ul>
+                   <div class="partial_login">
+                        <partial name="_LoginPartial" />
+                   </div>
                 </div>
             </div>
         </nav>
